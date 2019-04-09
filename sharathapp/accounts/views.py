@@ -1,7 +1,7 @@
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.viewsets import *
-from rest_framework.decorators import action
+# from rest_framework.decorators import action
 
 from .models import User
 from .serializers import *
@@ -27,7 +27,7 @@ class UserViewSet(ModelViewSet):
 
         return Response({'register': self.get_serializer(new_user).data}, status=status.HTTP_201_CREATED)
 
-    @action(detail=False, methods=['post'])
+    # @action(detail=False, methods=['post'])
     def login(self, request, *args, **kwargs):
         """
         Captures the response from the Oauth and checks with the user status.
@@ -54,7 +54,7 @@ class UserViewSet(ModelViewSet):
 
         return Response({'register': self.get_serializer(updated_user).data}, status=status.HTTP_201_CREATED)
 
-    @action(detail=True, methods=['put'])
+    # @action(detail=True, methods=['put'])
     def resetpassword(self, request, *args, **kwargs):
 
         user = self.get_object()        

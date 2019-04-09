@@ -5,7 +5,7 @@ from .views import *
 
 router = DefaultRouter()
 
-router.register('transaction', TransactionViewSet, base_name="user")
+router.register('transaction', TransactionViewSet, base_name="trnasaction")
 
 urlpatterns = [
     url(r'^', include(router.urls)),
