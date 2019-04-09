@@ -1,18 +1,9 @@
-import json
-import logging
-
-from uuid import uuid4
-from django.conf import settings
-from django.contrib.auth import logout
-from django.http import HttpRequest
-
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.viewsets import *
 from rest_framework.decorators import action
 
-
-from .models import *
+from .models import User
 from .serializers import *
 
 
@@ -23,6 +14,7 @@ class UserViewSet(ModelViewSet):
     permission_classes = ()
     http_method_names = ['post', 'head']
     serializer_class = UserSerializer
+    queryset = User.objects.all()
 
     def create(self, request, *args, **kwargs):
 
@@ -41,7 +33,7 @@ class UserViewSet(ModelViewSet):
         Captures the response from the Oauth and checks with the user status.
         """
         # Create a http request for TokenView class(https://github.com/encode/django-rest-framework/issues/2768)
-        data = request.POST
+        data = request.data
         queryset = User.objects.filter(username=data['username'], password=data['password'])
 
         if queryset:
@@ -65,17 +57,12 @@ class UserViewSet(ModelViewSet):
     @action(detail=True, methods=['put'])
     def resetpassword(self, request, *args, **kwargs):
 
-        user = self.get_object()
-        data = request.data
-        code = self.kwargs['code']
-        password = data['password']
-        password_confirmation = data['confirm-password']
-        if password == password_confirmation:
-
-            user.set_password(password)
+        user = self.get_object()        
+        
+        if request.data["password"] != request.data["passwordConfirmation"]:
+            user.set_password(request.data["password"])
             user.save()
-            content = {'message': 'Password Reset Successfully'}
-            return Response(content, status=status.HTTP_200_OK)
+            return Response({'message': 'Password Reset Successfully'}, status=status.HTTP_200_OK)
         else:
             return Response({'message': 'Password reset link expired. Kindly reset again'},
                             status=status.HTTP_400_BAD_REQUEST)

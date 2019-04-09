@@ -1,3 +1,4 @@
+from django_pandas.io import read_frame
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.core.validators import RegexValidator
@@ -26,3 +27,6 @@ class User(AbstractUser):
     def __str__(self):
         return self.username
 
+    @property
+    def transactions_as_df(self):
+        return read_frame(self.transactions_set.all())
