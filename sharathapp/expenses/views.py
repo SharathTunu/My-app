@@ -31,13 +31,10 @@ class TransactionViewSet(ModelViewSet):
 
     def update(self, request, *args, **kwargs):
 
-        user = self.get_object()
-
-        if request.data["password"] != request.data["passwordConfirmation"]:
-            return Response({'register': False, "message": "Password mismatch"})
-
+        record = self.get_object()
+        request.data['user'] = request.user.id
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
-        updated_user = User.objects.updata_or_create(id=user.id, defaults=serializer.data)
-
-        return Response({'register': self.get_serializer(updated_user).data}, status=status.HTTP_201_CREATED)
+        Transactions.objects.updata_or_create(id=record.id, default=serializer.data)
+        queryset = Transactions.objects.filter(user=request.user)
+        return Response({'register': self.get_serializer(queryset).data}, status=status.HTTP_201_CREATED)
