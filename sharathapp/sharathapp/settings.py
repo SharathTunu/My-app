@@ -165,6 +165,7 @@ REST_FRAMEWORK = {
        'oauth2_provider.contrib.rest_framework.TokenHasReadWriteScope',
     ),
     'DEFAULT_RENDERER_CLASSES': (
+        'utils.renderers.FHJSONRenderer',
         'rest_framework.renderers.BrowsableAPIRenderer',
         'rest_framework_xml.renderers.XMLRenderer',
     ),

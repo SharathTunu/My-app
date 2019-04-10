@@ -5,13 +5,14 @@ from rest_framework.viewsets import *
 
 from .models import Transactions
 from .serializers import *
+from utils.permissions import BasicPermission
 
 
 class TransactionViewSet(ModelViewSet):
     """
     Checks email and password and returns an auth token.
     """
-    permission_classes = ()
+    permission_classes = [BasicPermission]
     http_method_names = ['get', 'post', 'head']
     serializer_class = TransactionSerializer
 
