@@ -8,6 +8,6 @@ class TransactionSerializer(ModelSerializer):
     A serializer for our transaction objects.
     """
     class Meta:
-        model = Transactions
+        model = FinancialTransaction
         fields = "__all__"
 
