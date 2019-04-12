@@ -1,6 +1,5 @@
 from django.contrib.auth.models import (AbstractBaseUser, BaseUserManager,
                                         Group, GroupManager, PermissionsMixin)
-
 from django.core.exceptions import ValidationError
 from django.core.validators import RegexValidator, MinValueValidator, MaxValueValidator
 from django.conf import settings
@@ -8,10 +7,10 @@ from django.db import models
 from django.forms import ModelForm
 from django.utils.translation import ugettext_lazy as _
 
-from datetime import datetime
-
 from .fields import PhoneNumberField
+from common_methods import *
 
+from datetime import datetime
 from django_pandas.io import read_frame
 
 
@@ -68,10 +67,12 @@ class User(AbstractBaseUser, PermissionsMixin):
     USERNAME_FIELD = 'username'
     REQUIRED_FIELDS = ['first_name', 'last_name']
 
-    def get_full_name(self):
+    @property
+    def full_name(self):
         return self.first_name + " " + self.last_name
 
-    def get_short_name(self):
+    @property
+    def short_name(self):
         return self.first_name
 
     def sagroups(self):
@@ -94,6 +95,13 @@ class User(AbstractBaseUser, PermissionsMixin):
     @property
     def transactions_as_df(self):
         return read_frame(self.financialtransaction_set.all())
+    
+    def export_to_excel(self, report_df=pd.DataFrame()):        
+        response = dict()
+        transactions = self.transactions_as_df
+        response["Transactions"] = transactions
+        response["Summary"] = dataframe_summary(transactions)
+        return response
 
 
 class SAGroup(Group):
