@@ -21,6 +21,7 @@ from django.conf import settings
 
 
 urlpatterns = [
+    url(r'^o/', include('oauth2_provider.urls', namespace='oauth2_provider')),
     url(r'^api/', include('accounts.urls')),
     url(r'^api/', include('expenses.urls')),
 ]
