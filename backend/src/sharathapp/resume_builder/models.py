@@ -6,14 +6,6 @@ from accounts.models import User
 
 # Create your models here.
 
-
-class ExampleModel(models.Model):
-    name = models.CharField(max_length=20, blank=True)
-    
-
-    def __unicode__(self):
-        return unicode(self.month)
-
 class Resume(models.Model):
     """
     Create a custom user using django base user model.
