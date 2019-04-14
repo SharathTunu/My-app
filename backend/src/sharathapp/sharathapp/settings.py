@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-
+    'rest_framework_xml',
     'rest_framework.authtoken',
     'django_jenkins',
     'health_check',
@@ -49,6 +49,7 @@ INSTALLED_APPS = [
 
     'accounts',
     'expenses',
+    'resume_builder',
 ]
 
 MIDDLEWARE = [
@@ -91,8 +92,10 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
         'NAME': 'sharath-app',
-        'USER': 'fh-app',
-        'PASSWORD': 'fhtothemax1000',
+        # 'USER': 'fh-app',
+        # 'PASSWORD': 'fhtothemax1000',
+        'USER': 'postgres',
+        'PASSWORD': 'Rocker321',
         'HOST': 'localhost',
         'PORT': '5432',
     }

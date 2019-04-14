@@ -52,6 +52,8 @@ django-currentuser==0.3.4
 django-picklefield==1.0.0
 django-extra-fields==1.1.0
 django-storages==1.7.1
+djangorestframework-xml==1.4.0
+django-monthfield==0.1.1
 # OAuth and dependencies
 django-oauth-toolkit==1.1.2
 oauthlib==3.0.1
@@ -67,7 +69,7 @@ django-filter==2.1.0
 # Pandas and dependencies
 pandas==0.24.2
 numpy==1.16.2
-python-dateutil==2.8.0Fp
+python-dateutil==2.8.0
 six==1.12.0
 pandas-drf-tools==0.1.1
 pandas-summary==0.0.6
@@ -141,5 +143,5 @@ XlsxWriter==1.1.6
 html5lib==1.0b10
 whitenoise==4.1.2
 update-checker==0.16
-whitenoise==3.3.1
 email-validator==1.0.3
+fpdf==1.7.2
