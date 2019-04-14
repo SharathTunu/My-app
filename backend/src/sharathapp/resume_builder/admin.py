@@ -15,7 +15,7 @@ class SkillInline(admin.TabularInline):
 
 class ExperienceInline(admin.TabularInline):
     model = Experience
-    fields = ['resume', 'institution', 'title', 'star_date', 'end_date', 'still_working', 'text']
+    fields = ['resume', 'institution', 'title', 'start_date', 'end_date', 'still_working', 'text']
     extra =1
 
 class ProjectsInline(admin.TabularInline):

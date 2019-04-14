@@ -18,14 +18,28 @@ class UserViewSet(ModelViewSet):
 
     def create(self, request, *args, **kwargs):
 
-        if request.data["password"] != request.data["passwordConfirmation"]:
+        if request.data["password"] != request.data["password_confirmation"]:
             return Response({'register': False, "message": "Password mismatch"})
 
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
-        new_user = serializer.save()
+        data = request.data
 
-        return Response({'register': self.get_serializer(new_user).data}, status=status.HTTP_201_CREATED)
+        firstName = data['first_name']
+        lastName = data['last_name']
+        email = data['email']
+        password = data['password']
+        passwordConfirmation = data['password_confirmation']
+
+        try:
+            user = User.objects.create_user(username=email, first_name=firstName, last_name=lastName, password=password, email=email)
+            user.is_active = True
+            user.is_staff = False
+            user.save()
+        except:
+            return Response({'register': False, "message": "Cannot create user"})
+
+        return Response({'register': self.get_serializer(user).data}, status=status.HTTP_201_CREATED)
 
     # @action(detail=False, methods=['post'])
     def login(self, request, *args, **kwargs):
