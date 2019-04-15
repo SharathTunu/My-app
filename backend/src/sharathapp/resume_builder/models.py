@@ -41,7 +41,7 @@ class Experience(models.Model):
     institution = models.CharField(max_length=100)
     title = models.CharField(max_length=100)
     start_date = MonthField("Month Value", help_text="Year-month of start") 
-    end_date = MonthField("Month Value", help_text="Year-month of end", null=True)
+    end_date = MonthField("Month Value", help_text="Year-month of end", null=True, blank=True)
     still_working = models.BooleanField(default=False)
     text = models.TextField(help_text="Please enter few words regarding the work in the institute.")
 
