@@ -92,7 +92,9 @@ class User(AbstractBaseUser, PermissionsMixin):
     
     @property
     def transactions_as_df(self):
-        return read_frame(self.financialtransaction_set.all())
+        df = read_frame(self.financialtransaction_set.all())
+        df = df.set_index('id')
+        return df
     
     def export_to_excel(self, report_df=pd.DataFrame()):        
         response = dict()
