@@ -1,334 +1,412 @@
 <!DOCTYPE html>
 
 <html>
+
 <head>
-	<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
-	<meta name=Generator content="Microsoft Word 15 (filtered)">
-	<style>
-      <!--
-       /* Font Definitions */
-       @font-face
-          {font-family:"Cambria Math";
-          panose-1:2 4 5 3 5 4 6 3 2 4;}
-      @font-face
-          {font-family:"Century Gothic";}
-      @font-face
-          {font-family:Meiryo;}
-      @font-face
-          {font-family:"Segoe UI";
-          panose-1:2 11 5 2 4 2 4 2 2 3;}
-      @font-face
-          {font-family:"\@Meiryo";}
-       /* Style Definitions */
-       p.MsoNormal, li.MsoNormal, div.MsoNormal
-          {margin:0in;
-          margin-bottom:.0001pt;
-          font-size:9.0pt;
-          font-family:"Century Gothic",sans-serif;}
-      h1
-          {mso-style-link:"Heading 1 Char";
-          margin-top:12.0pt;
-          margin-right:0in;
-          margin-bottom:0in;
-          margin-left:0in;
-          margin-bottom:.0001pt;
-          page-break-after:avoid;
-          font-size:16.0pt;
-          font-family:"Century Gothic",sans-serif;
-          color:#548AB7;
-          font-weight:normal;}
-      h2
-          {mso-style-link:"Heading 2 Char";
-          margin-top:12.0pt;
-          margin-right:0in;
-          margin-bottom:6.0pt;
-          margin-left:0in;
-          page-break-after:avoid;
-          border:none;
-          padding:0in;
-          font-size:11.0pt;
-          font-family:"Century Gothic",sans-serif;
-          text-transform:uppercase;}
-      h3
-          {mso-style-link:"Heading 3 Char";
-          margin-top:12.0pt;
-          margin-right:0in;
-          margin-bottom:6.0pt;
-          margin-left:0in;
-          page-break-after:avoid;
-          font-size:11.0pt;
-          font-family:"Century Gothic",sans-serif;
-          color:#548AB7;
-          text-transform:uppercase;}
-      h4
-          {mso-style-link:"Heading 4 Char";
-          margin:0in;
-          margin-bottom:.0001pt;
-          font-size:9.0pt;
-          font-family:"Century Gothic",sans-serif;}
-      p.MsoHeader, li.MsoHeader, div.MsoHeader
-          {mso-style-link:"Header Char";
-          margin:0in;
-          margin-bottom:.0001pt;
-          font-size:9.0pt;
-          font-family:"Century Gothic",sans-serif;}
-      p.MsoFooter, li.MsoFooter, div.MsoFooter
-          {mso-style-link:"Footer Char";
-          margin:0in;
-          margin-bottom:.0001pt;
-          font-size:9.0pt;
-          font-family:"Century Gothic",sans-serif;}
-      p.MsoTitle, li.MsoTitle, div.MsoTitle
-          {mso-style-link:"Title Char";
-          margin:0in;
-          margin-bottom:.0001pt;
-          font-size:48.0pt;
-          font-family:"Century Gothic",sans-serif;
-          color:black;
-          text-transform:uppercase;}
-      p.MsoSubtitle, li.MsoSubtitle, div.MsoSubtitle
-          {mso-style-link:"Subtitle Char";
-          margin:0in;
-          margin-bottom:.0001pt;
-          font-size:16.0pt;
-          font-family:"Century Gothic",sans-serif;
-          color:black;
-          letter-spacing:.95pt;}
-      p.MsoDate, li.MsoDate, div.MsoDate
-          {mso-style-link:"Date Char";
-          margin:0in;
-          margin-bottom:.0001pt;
-          font-size:9.0pt;
-          font-family:"Century Gothic",sans-serif;}
-      a:link, span.MsoHyperlink
-          {color:#B85A22;
-          text-decoration:underline;}
-      a:visited, span.MsoHyperlinkFollowed
-          {color:#704404;
-          text-decoration:underline;}
-      p.MsoAcetate, li.MsoAcetate, div.MsoAcetate
-          {mso-style-link:"Balloon Text Char";
-          margin:0in;
-          margin-bottom:.0001pt;
-          font-size:9.0pt;
-          font-family:"Segoe UI",sans-serif;}
-      span.MsoPlaceholderText
-          {color:gray;}
-      span.Heading2Char
-          {mso-style-name:"Heading 2 Char";
-          mso-style-link:"Heading 2";
-          font-family:"Century Gothic",sans-serif;
-          text-transform:uppercase;
-          font-weight:bold;}
-      span.TitleChar
-          {mso-style-name:"Title Char";
-          mso-style-link:Title;
-          color:black;
-          text-transform:uppercase;}
-      span.Heading1Char
-          {mso-style-name:"Heading 1 Char";
-          mso-style-link:"Heading 1";
-          font-family:"Century Gothic",sans-serif;
-          color:#548AB7;}
-      span.DateChar
-          {mso-style-name:"Date Char";
-          mso-style-link:Date;}
-      span.HeaderChar
-          {mso-style-name:"Header Char";
-          mso-style-link:Header;}
-      span.FooterChar
-          {mso-style-name:"Footer Char";
-          mso-style-link:Footer;}
-      span.SubtitleChar
-          {mso-style-name:"Subtitle Char";
-          mso-style-link:Subtitle;
-          color:black;
-          letter-spacing:.95pt;}
-      span.Heading3Char
-          {mso-style-name:"Heading 3 Char";
-          mso-style-link:"Heading 3";
-          font-family:"Century Gothic",sans-serif;
-          color:#548AB7;
-          text-transform:uppercase;
-          font-weight:bold;}
-      span.Heading4Char
-          {mso-style-name:"Heading 4 Char";
-          mso-style-link:"Heading 4";
-          font-weight:bold;}
-      span.BalloonTextChar
-          {mso-style-name:"Balloon Text Char";
-          mso-style-link:"Balloon Text";
-          font-family:"Segoe UI",sans-serif;}
-      .MsoChpDefault
-          {font-size:12.0pt;
-          font-family:"Century Gothic",sans-serif;}
-       /* Page Definitions */
-       @page WordSection1
-          {size:8.5in 11.0in;
-          margin:.5in .5in .5in .5in;}
-      div.WordSection1
-          {page:WordSection1;}
-      -->
-	</style>
+    <meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+    <meta name=Generator content="Microsoft Word 15">
+    <style>
+        /* Font Definitions */
+        @font-face {
+            font-family: "Cambria Math";
+            panose-1: 2 4 5 3 5 4 6 3 2 4;
+        }
+
+        @font-face {
+            font-family: "Century Gothic";
+        }
+
+        @font-face {
+            font-family: Meiryo;
+        }
+
+        @font-face {
+            font-family: "Segoe UI";
+            panose-1: 2 11 5 2 4 2 4 2 2 3;
+        }
+
+        @font-face {
+            font-family: "\@Meiryo";
+        }
+
+        /* Style Definitions */
+        p.MsoNormal,
+        li.MsoNormal,
+        div.MsoNormal {
+            margin: 0in;
+            margin-bottom: .0001pt;
+            font-size: 9.0pt;
+            font-family: "Century Gothic", sans-serif;
+        }
+
+        h1 {
+            mso-style-link: "Heading 1 Char";
+            margin-top: 12.0pt;
+            margin-right: 0in;
+            margin-bottom: 0in;
+            margin-left: 0in;
+            margin-bottom: .0001pt;
+            page-break-after: avoid;
+            font-size: 16.0pt;
+            font-family: "Century Gothic", sans-serif;
+            color: rgb(84, 138, 183);
+            font-weight: normal;
+        }
+
+        h2 {
+            mso-style-link: "Heading 2 Char";
+            margin-top: 12.0pt;
+            margin-right: 0in;
+            margin-bottom: 6.0pt;
+            margin-left: 0in;
+            page-break-after: avoid;
+            border: none;
+            padding: 0in;
+            font-size: 11.0pt;
+            font-family: "Century Gothic", sans-serif;
+            text-transform: uppercase;
+        }
+
+        h3 {
+            mso-style-link: "Heading 3 Char";
+            margin-top: 12.0pt;
+            margin-right: 0in;
+            margin-bottom: 6.0pt;
+            margin-left: 0in;
+            page-break-after: avoid;
+            font-size: 11.0pt;
+            font-family: "Century Gothic", sans-serif;
+            color: rgb(119, 161, 196);
+            text-transform: uppercase;
+        }
+
+        h4 {
+            mso-style-link: "Heading 4 Char";
+            margin: 0in;
+            margin-bottom: .0001pt;
+            font-size: 9.0pt;
+            font-family: "Century Gothic", sans-serif;
+        }
+
+        p.MsoHeader,
+        li.MsoHeader,
+        div.MsoHeader {
+            mso-style-link: "Header Char";
+            margin: 0in;
+            margin-bottom: .0001pt;
+            font-size: 9.0pt;
+            font-family: "Century Gothic", sans-serif;
+        }
+
+        p.MsoFooter,
+        li.MsoFooter,
+        div.MsoFooter {
+            mso-style-link: "Footer Char";
+            margin: 0in;
+            margin-bottom: .0001pt;
+            font-size: 9.0pt;
+            font-family: "Century Gothic", sans-serif;
+        }
+
+        p.MsoTitle,
+        li.MsoTitle,
+        div.MsoTitle {
+            mso-style-link: "Title Char";
+            margin: 0in;
+            margin-bottom: .0001pt;
+            font-size: 48.0pt;
+            font-family: "Century Gothic", sans-serif;
+            color: rgb(0, 0, 0);
+            text-transform: uppercase;
+        }
+
+        p.MsoSubtitle,
+        li.MsoSubtitle,
+        div.MsoSubtitle {
+            mso-style-link: "Subtitle Char";
+            margin: 0in;
+            margin-bottom: .0001pt;
+            font-size: 16.0pt;
+            font-family: "Century Gothic", sans-serif;
+            color: rgb(0, 0, 0);
+            letter-spacing: .95pt;
+        }
+
+        p.MsoDate,
+        li.MsoDate,
+        div.MsoDate {
+            mso-style-link: "Date Char";
+            margin: 0in;
+            margin-bottom: .0001pt;
+            font-size: 9.0pt;
+            font-family: "Century Gothic", sans-serif;
+        }
+
+        a:link,
+        span.MsoHyperlink {
+            color: rgb(184, 90, 34);
+            text-decoration: underline;
+        }
+
+        a:visited,
+        span.MsoHyperlinkFollowed {
+            color: #83540f;
+            text-decoration: underline;
+        }
+
+        p.MsoAcetate,
+        li.MsoAcetate,
+        div.MsoAcetate {
+            mso-style-link: "Balloon Text Char";
+            margin: 0in;
+            margin-bottom: .0001pt;
+            font-size: 9.0pt;
+            font-family: "Segoe UI", sans-serif;
+        }
+
+        span.MsoPlaceholderText {
+            color: rgb(128, 128, 128);
+        }
+
+        span.Heading2Char {
+            mso-style-name: "Heading 2 Char";
+            mso-style-link: "Heading 2";
+            font-family: "Century Gothic", sans-serif;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        span.TitleChar {
+            mso-style-name: "Title Char";
+            mso-style-link: Title;
+            color: rgb(0, 0, 0);
+            text-transform: uppercase;
+        }
+
+        span.Heading1Char {
+            mso-style-name: "Heading 1 Char";
+            mso-style-link: "Heading 1";
+            font-family: "Century Gothic", sans-serif;
+            color: rgb(84, 138, 183);
+        }
+
+        span.DateChar {
+            mso-style-name: "Date Char";
+            mso-style-link: Date;
+        }
+
+        span.HeaderChar {
+            mso-style-name: "Header Char";
+            mso-style-link: Header;
+        }
+
+        span.FooterChar {
+            mso-style-name: "Footer Char";
+            mso-style-link: Footer;
+        }
+
+        span.SubtitleChar {
+            mso-style-name: "Subtitle Char";
+            mso-style-link: Subtitle;
+            color: rgb(0, 0, 0);
+            letter-spacing: .95pt;
+        }
+
+        span.Heading3Char {
+            mso-style-name: "Heading 3 Char";
+            mso-style-link: "Heading 3";
+            font-family: "Century Gothic", sans-serif;
+            color: rgb(84, 138, 183);
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        span.Heading4Char {
+            mso-style-name: "Heading 4 Char";
+            mso-style-link: "Heading 4";
+            font-weight: bold;
+        }
+
+        span.BalloonTextChar {
+            mso-style-name: "Balloon Text Char";
+            mso-style-link: "Balloon Text";
+            font-family: "Segoe UI", sans-serif;
+        }
+
+        .MsoChpDefault {
+            font-size: 12.0pt;
+            font-family: "Century Gothic", sans-serif;
+        }
+
+        /* Page Definitions */
+        @page WordSection1 {
+            size: 8.5in 11.0in;
+            margin: .5in .5in .5in .5in;
+        }
+
+        div.WordSection1 {
+            page: WordSection1;
+        }
+    </style>
 
 </head>
 
-<body lang=EN-US link="#B85A22" vlink="#704404">
+<body lang=EN-US>
 
-<div class=WordSection1>
+    <div class=WordSection1>
 
-	<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 style='border-collapse:collapse'>
- 		<tr style='height:220.5pt'>
-  			<td width=240 valign=bottom style='width:2.5in;padding:0in 5.75pt 0in 5.75pt; height:220.5pt'>
-  				<p class=MsoNormal align=center style='text-align:center'>
-                	<span style='color:windowtext'><img width=230 height=230 id="Oval 2" src=""
-                          alt="Title: Professional Headshot of Man">
-                    </span>
-                </p>
-  			</td>
-  			<td width=48 valign=top style='width:.5in;padding:0in 5.75pt 0in 5.75pt; height:220.5pt'>
-  				<p class=MsoNormal>
-                	<span style='color:windowtext'>
-                    	&nbsp;
-                    </span>
-                </p>
-  			</td>
- 			<td width=431 valign=bottom style='width:323.5pt;padding:0in 5.75pt 0in 5.75pt; height:220.5pt'>
-  				<p class=MsoTitle>
-                	Name<br>
-  					Here
-                </p>
-  				<p class=MsoSubtitle>
-                	<span style='text-fit:1.5in'>
-                    	<span style='letter-spacing: 0pt'>
-                        	JOB TITLE HERE
+        <table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 style='border-collapse:collapse'>
+            <tr style='height:220.5pt'>
+                <td width=240 valign=bottom style='width:2.5in;padding:0in 5.75pt 0in 5.75pt; height:220.5pt'>
+                    <p class=MsoNormal align=center style='text-align:center'>
+                        <span style='color:windowtext'><img width=230 height=230 id="Oval 2" src=""
+                                alt="Title: Professional Headshot of Man">
                         </span>
-                     </span>
-               </p>
-  			</td>
- 		</tr>
-		
-        <tr>
-  			
-            <td width=240 valign=top style='width:2.5in;padding:0in 5.75pt 0in 5.75pt'>
- 				
-                <h3>Profile</h3>
- 				<p class=MsoNormal>
-                	<span style='color:windowtext'>
-                    	Want to put your own image in the circle?
-  						It is easy! 
-  						Select the image and do a right mouse click.
-  						Select Fill from the shortcut menu. 
-  						Choose Picture from the list.
-  						Navigate your computer to get the appropriate picture. 
-  						Click okay to insert
-  						your selected image.
-					</span>
-				</p>
-				<p class=MsoNormal>
-                	<span style='color:windowtext'>
-                    	&nbsp;
-                    </span>
-                </p>
-  				<p class=MsoNormal>
-                	<span style='color:windowtext'>
-                    	Once your image has been
-                        inserted, select it again.
-                        Go to the Picture Tools Format menu. 
-                        Click on the down arrow below 
-                        Crop and select Fill from the list.
-                        This will auto adjust your image to crop to the image.
-                        You can click and drag your image to place it appropriately.
-					</span>
-				</p>
-				<p class=MsoNormal>
-                	<span style='color:windowtext'>
-                    	&nbsp;
-					</span>
-				</p>
-                
-				<h3>Contact</h3>
-				<p class=MsoNormal>
-                	<span style='color:windowtext'>
-                    	PHONE:
-					</span>
-				</p>
-                <p class=MsoNormal>
-                	<span style='color:windowtext'>
-                    	{{ resume.user.phonenumber }}
-					</span>
-				</p>
-				<p class=MsoNormal>
-                	<span style='color:windowtext'>
-                    	&nbsp;
-					</span>
-				</p>
-                
-                {% if resume.website %}
-                  <p class=MsoNormal>
-                      <span style='color:windowtext'>
-                          WEBSITE:
-                      </span>
-                  </p>
-                  <p class=MsoNormal>
-                      <span style='color:windowtext'>
-                         {{ resume.website }}
-                      </span>
-                  </p>
-                  <p class=MsoNormal>
-                      <span style='color:windowtext'>
-                          &nbsp;
-                      </span>
-                  </p>
-                {% endif %}
-                
-                <p class=MsoNormal>
-                	<span style='color:windowtext'>
-                    	EMAIL:
-					</span>
-				</p>
-				<p class=MsoNormal>
-                	<span class=MsoHyperlink>
-                    	{{ resume.user.email }}
-					</span>
-                    <span style='color:windowtext'>
-                    	<a href="mailto:{{ resume.user.email }}"></a>
-                    </span>
-				</p>
-				{% if resume.skill_set.all() %}
-					<h3>Hobbies</h3>
-					{% for hobby in resume.hobby_set.all() %}
-						<p class=MsoNormal>
-                        	<span style='color:windowtext'>
-                            	Hobby #1
-                        	</span>
-                    	</p>
-					{% endfor %}
-				{% endif %}
-  			</td>
-  			
-            <td width=48 valign=top style='width:.5in;padding:0in 5.75pt 0in 5.75pt'>
-  				<p class=MsoNormal>
-                	<span style='color:windowtext'>
-                    	&nbsp;
-                    </span>
-				</p>
-  			</td>
-  			
-            <td width=431 valign=top style='width:323.5pt;padding:0in 5.75pt 0in 5.75pt'>
-				<div style='border:none;border-bottom:solid #94B6D2 1.0pt;padding:0in 0in 1.0pt 0in'>
-					<h2>
-                    	<span style='color:windowtext'>
-                        	EDUCATION
-						</span>
-					</h2>
-				</div>
-                <p class=MsoNormal>
-                	<span style='color:windowtext'>
-                    	&nbsp;
-					</span>
-				</p>
-                {% for school in resume.education_set.all() %}
+                    </p>
+                </td>
+                <td width=48 valign=top style='width:1in;padding:0in 5.75pt 0in 5.75pt; height:220.5pt'>
+                    <p class=MsoNormal>
+                        <span style='color:windowtext'>
+                            &nbsp;
+                        </span>
+                    </p>
+                </td>
+                <td width=431 valign=bottom style='width:323.5pt;padding:0in 5.75pt 0in 5.75pt; height:220.5pt'>
+                    <p class=MsoTitle>
+                        Name<br>
+                        Here
+                    </p>
+                    <p class=MsoSubtitle>
+                        <span style='text-fit:1.5in'>
+                            <span style='letter-spacing: 0pt'>
+                                JOB TITLE HERE
+                            </span>
+                        </span>
+                    </p>
+                </td>
+            </tr>
+
+            <tr>
+
+                <td width=240 valign=top style='width:2.5in;padding:0in 5.75pt 0in 5.75pt'>
+
+                    <h3>Profile</h3>
+                    <p class=MsoNormal>
+                        <span style='color:windowtext'>
+                            Want to put your own image in the circle?
+                            It is easy!
+                            Select the image and do a right mouse click.
+                            Select Fill from the shortcut menu.
+                            Choose Picture from the list.
+                            Navigate your computer to get the appropriate picture.
+                            Click okay to insert
+                            your selected image.
+                        </span>
+                    </p>
+                    <p class=MsoNormal>
+                        <span style='color:windowtext'>
+                            &nbsp;
+                        </span>
+                    </p>
+                    <p class=MsoNormal>
+                        <span style='color:windowtext'>
+                            Once your image has been
+                            inserted, select it again.
+                            Go to the Picture Tools Format menu.
+                            Click on the down arrow below
+                            Crop and select Fill from the list.
+                            This will auto adjust your image to crop to the image.
+                            You can click and drag your image to place it appropriately.
+                        </span>
+                    </p>
+                    <p class=MsoNormal>
+                        <span style='color:windowtext'>
+                            &nbsp;
+                        </span>
+                    </p>
+
+                    <h3>Contact</h3>
+                    <p class=MsoNormal>
+                        <span style='color:windowtext'>
+                            PHONE:
+                        </span>
+                    </p>
+                    <p class=MsoNormal>
+                        <span style='color:windowtext'>
+                            {{ resume.user.phonenumber }}
+                        </span>
+                    </p>
+                    <p class=MsoNormal>
+                        <span style='color:windowtext'>
+                            &nbsp;
+                        </span>
+                    </p>
+
+                    {% if resume.website %}
+                    <p class=MsoNormal>
+                        <span style='color:windowtext'>
+                            WEBSITE:
+                        </span>
+                    </p>
+                    <p class=MsoNormal>
+                        <span style='color:windowtext'>
+                            {{ resume.website }}
+                        </span>
+                    </p>
+                    <p class=MsoNormal>
+                        <span style='color:windowtext'>
+                            &nbsp;
+                        </span>
+                    </p>
+                    {% endif %}
+
+                    <p class=MsoNormal>
+                        <span style='color:windowtext'>
+                            EMAIL:
+                        </span>
+                    </p>
+                    <p class=MsoNormal>
+                        <span class=MsoHyperlink>
+                            {{ resume.user.email }}
+                        </span>
+                        <span style='color:windowtext'>
+                            <a href="mailto:{{ resume.user.email }}"></a>
+                        </span>
+                    </p>
+                    {% if skills %}
+                    <h3>Hobbies</h3>
+                    {% for hobby in skill %}
+                    <p class=MsoNormal>
+                        <span style='color:windowtext'>
+                            Hobby
+                        </span>
+                    </p>
+                    {% endfor %}
+                    {% endif %}
+                </td>
+
+                <td width=48 valign=top style='width:1in;padding:0in 5.75pt 0in 5.75pt'>
+                    <p class=MsoNormal>
+                        <span style='color:windowtext'>
+                            &nbsp;
+                        </span>
+                    </p>
+                </td>
+
+                <td width=431 valign=top style='width:323.5pt;padding:0in 5.75pt 0in 5.75pt'>
+                    <div style='border:none;border-bottom:solid rgb(135, 162, 184) 1.0pt;padding:0in 0in 1.0pt 0in'>
+                        <h2>
+                            <span style='color:windowtext'>
+                                EDUCATION
+                            </span>
+                        </h2>
+                    </div>
+                    <p class=MsoNormal>
+                        <span style='color:windowtext'>
+                            &nbsp;
+                        </span>
+                    </p>
+                    {% for school in schools %}
                     <h4>
                         <span style='color:windowtext'>
                             {{ school.institution }} - {{ school.degree }}
@@ -349,37 +427,37 @@
                             &nbsp;
                         </span>
                     </p>
-				{% endfor %}
-  				<div style='border:none;border-bottom:solid #94B6D2 1.0pt;padding:0in 0in 1.0pt 0in'>
-  					<h2>
-                    	<span style='color:windowtext'>
-                        	WORK EXPERIENCE
-						</span>
-					</h2>
-				</div>
-                <p class=MsoNormal>
-                	<span style='color:windowtext'>
-                    	&nbsp;
-					</span>
-				</p>
-                {% for work in resume.experience_set.all() %}
+                    {% endfor %}
+                    <div style='border:none;border-bottom:solid rgb(135, 162, 184) 1.0pt;padding:0in 0in 1.0pt 0in'>
+                        <h2>
+                            <span style='color:windowtext'>
+                                WORK EXPERIENCE
+                            </span>
+                        </h2>
+                    </div>
+                    <p class=MsoNormal>
+                        <span style='color:windowtext'>
+                            &nbsp;
+                        </span>
+                    </p>
+                    {% for work in experience %}
                     <h4>
                         <span style='color:windowtext'>
                             {{ work.institution }} - {{ work.title }}
                         </span>
                     </h4>
-                    {% if not work.still_working %} 
-                        <p class=MsoDate>
-                            <span style='color:windowtext'>
-                                {{ work.start_date }} - present
-                            </span>
-                        </p>
+                    {% if not work.still_working %}
+                    <p class=MsoDate>
+                        <span style='color:windowtext'>
+                            {{ work.start_date }} - present
+                        </span>
+                    </p>
                     {% else %}
-                    	<p class=MsoDate>
-                            <span style='color:windowtext'>
-                                {{ work.start }} - {{ work.end_date }}
-                            </span>
-                        </p>
+                    <p class=MsoDate>
+                        <span style='color:windowtext'>
+                            {{ work.start }} - {{ work.end_date }}
+                        </span>
+                    </p>
                     {% endif %}
                     <p class=MsoNormal>
                         <span style='color:windowtext'>
@@ -391,28 +469,28 @@
                             &nbsp;
                         </span>
                     </p>
-                {% endfor %}
-				<div style='border:none;border-bottom:solid #94B6D2 1.0pt;padding:0in 0in 1.0pt 0in'>
-                	<h2>
-                    	<span class=Heading2Char>
-                        	<span style='color:windowtext'>
-                            	SKILLS
-							</span>
-						</span>
-					</h2>
-				</div>
-  				<p class=MsoNormal>
-                	<span style='color:black'>
-                    	<img border=0 width=394 height=132 id="Chart 12" src="" alt="skills chart">
-					</span>
-				</p>
-			</td>
-		</tr>
-	</table>
+                    {% endfor %}
+                    <div style='border:none;border-bottom:solid rgb(135, 162, 184) 1.0pt;padding:0in 0in 1.0pt 0in'>
+                        <h2>
+                            <span class=Heading2Char>
+                                <span style='color:windowtext'>
+                                    SKILLS
+                                </span>
+                            </span>
+                        </h2>
+                    </div>
+                    <p class=MsoNormal>
+                        <span style='color:black'>
+                            <img border=0 width=394 height=132 id="Chart 12" src="" alt="skills chart">
+                        </span>
+                    </p>
+                </td>
+            </tr>
+        </table>
 
-	<p class=MsoNormal>&nbsp;</p>
+        <p class=MsoNormal>&nbsp;</p>
 
-</div>
+    </div>
 
 </body>
 

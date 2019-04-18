@@ -135,6 +135,13 @@ pycparser==2.19
 Quandl==3.4.6 
 inflection==0.3.1 
 more-itertools==7.0.0
+# Weasyprint
+CarioSVG==2.3.1
+Pyphen==0.9.5
+Weasyprint==47
+cariocffi==1.0.2
+cssselect2==0.2.1
+tinycss2==1.0.2
 # Misc and independent
 django-computedfields==0.0.8
 psycopg2==2.8.1
