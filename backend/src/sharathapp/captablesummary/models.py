@@ -39,14 +39,14 @@ class CapTableReport():
                     results[c] = self.clean(new_df[c]).astype(float)
                 # Clean Date Fields with proper format.
                 elif c == "INVESTMENT DATE":
-                    results[c] = new_df[c].swifter.apply(pd.to_datetime, errors='coerce')
-                    results[c] = [d.strftime('%Y-%m-%d') if not pd.isnull(d) else None for d in results[c]]
-                    results[c] = pd.to_datetime(results[c], format='%Y-%m-%d')
+                    results[c] = pd.to_datetime(new_df[c], errors='coerce', format='%Y-%m-%d')
+                    bad_data.append(new_df.loc[~results.index.isin(results.dropna(subset=[c]).index)])
+                    results = results.dropna(subset=[c])
                 # Clean string Fields and save them as uppercase letters.
                 elif c == "INVESTOR":
                     results[c] = new_df[c]
                     results[c] = new_df[c].str.lower().str.capitalize()
-            
+
             nums = results._get_numeric_data().columns
             bad_numerics = (results[nums] == 0).any(1)
             bad_numerics = results[bad_numerics]
@@ -100,7 +100,7 @@ class CapTableReport():
         captable = self.captable_as_df(path)[0]
         filter_date = pytz.datetime.datetime.strptime(filter_date, "%Y-%m-%d")
         # 2.
-        captable = captable[captable['INVESTMENT DATE']<filter_date]
+        captable = captable[captable['INVESTMENT DATE']<= filter_date]
         # 3.
         # Convert date to string.
         response['date'] = filter_date.strftime("%m/%d/%Y")
