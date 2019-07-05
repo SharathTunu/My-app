@@ -3,7 +3,6 @@ import pandas as pd
 import numpy as np
 from multiprocessing import Pool
 import math
-import traceback
 from functools import partial
 import pytz
 from pandas_drf_tools.serializers import DataFrameIndexSerializer
@@ -27,33 +26,39 @@ class CapTableReport():
         results = pd.DataFrame(columns=captable.columns)
         bad_data = []
         try:
+            captable = captable.replace(r'^\s*$', np.nan, regex=True)
+            new_df = captable.dropna()
+            bad_data.append(pd.concat([captable, new_df]).drop_duplicates(keep=False))
+
             for c in results.columns:
                 # Clean Integer Fields.
                 if c == "SHARES PURCHASED":
-                    results[c] =  self.clean(captable[c]).astype(int)
+                    results[c] =  self.clean(new_df[c]).astype(int)
                 # Clean Float Fields.
                 elif c == "CASH PAID":
-                    results[c] = self.clean(captable[c]).astype(float)
+                    results[c] = self.clean(new_df[c]).astype(float)
                 # Clean Date Fields with proper format.
                 elif c == "INVESTMENT DATE":
-                    results[c] = captable[c].swifter.apply(pd.to_datetime, errors='coerce')
+                    results[c] = new_df[c].swifter.apply(pd.to_datetime, errors='coerce')
                     results[c] = [d.strftime('%Y-%m-%d') if not pd.isnull(d) else None for d in results[c]]
+                    results[c] = pd.to_datetime(results[c], format='%Y-%m-%d')
                 # Clean string Fields and save them as uppercase letters.
                 elif c == "INVESTOR":
-                    results[c] = captable[c]
-                    results[c] = captable[c].str.lower().str.capitalize()
+                    results[c] = new_df[c]
+                    results[c] = new_df[c].str.lower().str.capitalize()
+            
+            nums = results._get_numeric_data().columns
+            bad_numerics = (results[nums] == 0).any(1)
+            bad_numerics = results[bad_numerics]
 
-            bad_data.append(results.loc[~results.index.isin(results.dropna(axis=1, how='all').index)])
-            results = results.dropna(axis=1, how='all')
+            good_data = pd.concat([results, bad_numerics]).drop_duplicates(keep=False)
 
-            bad_data = pd.concat(bad_data, sort=True)
-            good_data = results[~bad_data]
-
+            bad_data.append(bad_numerics)
+            bad_data = pd.concat(bad_data, sort=True).dropna(how='all')
             return [good_data, bad_data]
 
         except Exception as ex:
-            err = "%s. %s" %(str(ex), traceback.format_exc())
-            return err
+            raise
 
     def captable_as_df(self, path):
         """
@@ -109,11 +114,11 @@ class CapTableReport():
         new_df = captable.drop_duplicates(subset=['INVESTOR'])
         # Calculate the ownership values for each investor.
         new_df['ownership'] = new_df['shares']/response['total_number_of_shares']
-        new_df.round({'ownership': 2})
+        new_df = new_df.round({'ownership': 2})
         new_df['investor'] = new_df['INVESTOR']
-        new_df.drop(columns=['INVESTMENT DATE', 'SHARES PURCHASED', 'CASH PAID', 'INVESTOR'], errors='ignore')
+        new_df = new_df.drop(columns=['INVESTMENT DATE', 'SHARES PURCHASED', 'CASH PAID', 'INVESTOR'], errors='ignore')
         # serialize the response.
-        response["ownership"] = DataFrameIndexSerializer(new_df).data
+        response["ownership"] = new_df.to_dict('r')
 
         return response
 
