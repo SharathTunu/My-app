@@ -44,8 +44,8 @@ class CapTableReport():
                     results = results.dropna(subset=[c])
                 # Clean string Fields and save them as uppercase letters.
                 elif c == "INVESTOR":
-                    results[c] = new_df[c]
-                    results[c] = new_df[c].str.lower().str.capitalize()
+                    results[c] = new_df[c].str.strip()
+                    results[c] = results[c].str.lower().str.capitalize()
 
             nums = results._get_numeric_data().columns
             bad_numerics = (results[nums] == 0).any(1)
