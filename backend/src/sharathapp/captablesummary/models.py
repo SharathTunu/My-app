@@ -1,17 +1,18 @@
-from django.db import models
 import pandas as pd
 import numpy as np
 from multiprocessing import Pool
 import math
 from functools import partial
 import pytz
-from pandas_drf_tools.serializers import DataFrameIndexSerializer
-# Create your models here.
+import re
 
 
 class CapTableReport():
+    
+    def clean_dates(self, value, pattern=re.compile("[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]")):
+        return value if pattern.match(value) else pd.NaT
 
-    def clean(self, series):
+    def clean_numbers(self, series):
         series = series.astype(str)
         series = series.str.replace(',', '')
         series = series.str.extract('(\-?\d*\.\d+|\d+)', expand=False)
@@ -39,6 +40,7 @@ class CapTableReport():
                     results[c] = self.clean(new_df[c]).astype(float)
                 # Clean Date Fields with proper format.
                 elif c == "INVESTMENT DATE":
+                    results[c] = new_df[c].apply(self.check_identifier)
                     results[c] = pd.to_datetime(new_df[c], errors='coerce', format='%Y-%m-%d')
                     bad_data.append(new_df.loc[~results.index.isin(results.dropna(subset=[c]).index)])
                     results = results.dropna(subset=[c])
