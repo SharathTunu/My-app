@@ -34,14 +34,14 @@ class CapTableReport():
             for c in results.columns:
                 # Clean Integer Fields.
                 if c == "SHARES PURCHASED":
-                    results[c] =  self.clean(new_df[c]).astype(int)
+                    results[c] =  self.clean_numbers(new_df[c]).astype(int)
                 # Clean Float Fields.
                 elif c == "CASH PAID":
-                    results[c] = self.clean(new_df[c]).astype(float)
+                    results[c] = self.clean_numbers(new_df[c]).astype(float)
                 # Clean Date Fields with proper format.
                 elif c == "INVESTMENT DATE":
-                    results[c] = new_df[c].apply(self.check_identifier)
-                    results[c] = pd.to_datetime(new_df[c], errors='coerce', format='%Y-%m-%d')
+                    results[c] = new_df[c].apply(self.clean_dates)
+                    results[c] = pd.to_datetime(results[c], errors='coerce', format='%Y-%m-%d')
                     bad_data.append(new_df.loc[~results.index.isin(results.dropna(subset=[c]).index)])
                     results = results.dropna(subset=[c])
                 # Clean string Fields and save them as uppercase letters.
@@ -99,7 +99,11 @@ class CapTableReport():
         """
         response = dict()
         # 1.
-        captable = self.captable_as_df(path)[0]
+        captable = self.captable_as_df(path)
+        if isinstance(captable, str):
+            return captable
+        bad_data = captable[1]
+        captable = captable[0]
         filter_date = pytz.datetime.datetime.strptime(filter_date, "%Y-%m-%d")
         # 2.
         captable = captable[captable['INVESTMENT DATE']<= filter_date]
