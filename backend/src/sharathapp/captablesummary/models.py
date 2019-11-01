@@ -5,12 +5,13 @@ import math
 from functools import partial
 import pytz
 import re
+import traceback
 
 
 class CapTableReport():
-    
-    def clean_dates(self, value, pattern=re.compile("[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]")):
-        return value if pattern.match(value) else pd.NaT
+
+    # def clean_dates(self, value, pattern=re.compile("[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]")):
+    #     return value if pattern.match(value) else pd.NaT
 
     def clean_numbers(self, series):
         series = series.astype(str)
@@ -40,8 +41,13 @@ class CapTableReport():
                     results[c] = self.clean_numbers(new_df[c]).astype(float)
                 # Clean Date Fields with proper format.
                 elif c == "INVESTMENT DATE":
-                    results[c] = new_df[c].apply(self.clean_dates)
-                    results[c] = pd.to_datetime(results[c], errors='coerce', format='%Y-%m-%d')
+
+                    clean_dates = new_df[c].str.match(r'\d{4}-\d{2}-\d{2}')
+                    results[c] = pd.Series(np.where(clean_dates,
+                              pd.to_datetime(new_df[c], format='%Y-%m-%d',errors='coerce'),
+                              np.datetime64('NaT')))
+                    # results[c] = new_df[c].apply(self.clean_dates)
+                    # results[c] = pd.to_datetime(results[c], errors='coerce', format='%Y-%m-%d')
                     bad_data.append(new_df.loc[~results.index.isin(results.dropna(subset=[c]).index)])
                     results = results.dropna(subset=[c])
                 # Clean string Fields and save them as uppercase letters.
@@ -60,7 +66,8 @@ class CapTableReport():
             return [good_data, bad_data]
 
         except Exception as ex:
-            raise
+            err = "%s. %s" %(str(ex), traceback.format_exc())
+            return err
 
     def captable_as_df(self, path):
         """
@@ -76,7 +83,7 @@ class CapTableReport():
         number_of_splits = math.ceil(captable.shape[0]/4000)
         record_dfs = np.array_split(captable, number_of_splits)
         p = Pool(processes=number_of_splits)
-        results = p.map(partial(self.process_captable), 
+        results = p.map(partial(self.process_captable),
                         [df for df in record_dfs])
         p.close()
         # 3.
@@ -84,7 +91,7 @@ class CapTableReport():
         if failed_threads:
             error = ". ".join(failed_threads)
             return error
-        
+
         passed_threads = [i for i in results if isinstance(i, list)]
         good_data = pd.concat([i[0] for i in passed_threads if isinstance(i[0], pd.DataFrame)])
         bad_data = pd.concat([i[1] for i in passed_threads if isinstance(i[1], pd.DataFrame)])
