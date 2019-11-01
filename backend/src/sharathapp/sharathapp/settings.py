@@ -49,7 +49,8 @@ INSTALLED_APPS = [
 
     'accounts',
     'expenses',
-    'resume_builder',
+    # 'resume_builder',
+    'passvault',
 ]
 
 MIDDLEWARE = [
