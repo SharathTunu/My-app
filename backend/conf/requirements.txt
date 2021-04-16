@@ -75,7 +75,7 @@ pandas-drf-tools==0.1.1
 pandas-summary==0.0.6
 django-pandas==0.6.0
 # django-debug-toolbar
-django-debug-toolbar==1.11
+django-debug-toolbar==1.11.1
 sqlparse==0.3.0
 # Core api
 coreapi==2.3.3 
