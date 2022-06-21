@@ -68,7 +68,7 @@ Markdown==3.1
 django-filter==2.1.0
 # Pandas and dependencies
 pandas==0.24.2
-numpy==1.16.2
+numpy==1.22.0
 python-dateutil==2.8.0
 six==1.12.0
 pandas-drf-tools==0.1.1
