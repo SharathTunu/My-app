@@ -102,7 +102,7 @@ soupsieve==1.9
 click==7.0 
 cloudpickle==0.8.1 
 dask==1.1.5 
-distributed==1.26.1 
+distributed==2021.10.0 
 heapdict==1.0.0 
 llvmlite==0.28.0 
 locket==0.2.0 
