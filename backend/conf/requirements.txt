@@ -129,7 +129,7 @@ factory-boy==2.11.1
 # cryptography
 asn1crypto==0.24.0 
 cffi==1.12.2 
-cryptography==2.6.1 
+cryptography==41.0.4 
 pycparser==2.19
 # Quandl
 Quandl==3.4.6 
